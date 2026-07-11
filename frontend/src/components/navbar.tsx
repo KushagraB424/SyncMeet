@@ -24,10 +24,7 @@ export function Navbar() {
         {/* Right: Actions */}
         <div className="flex items-center gap-1 sm:gap-3 text-gray-600">
 
-          <button className="relative flex h-8 w-8 items-center justify-center rounded-xl bg-orange-600 text-white font-medium hover:brightness-110 transition-all ml-1">
-            K
-            <span className="absolute bottom-0 right-0 h-2.5 w-2.5 bg-green-500 border-2 border-white rounded-full"></span>
-          </button>
+
         </div>
         
       </div>
