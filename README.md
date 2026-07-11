@@ -2,6 +2,22 @@
 
 A full-stack video conferencing web application inspired by Zoom's design and user experience. Built as a SDE Fullstack Assignment.
 
+## Live Demo
+
+- **Frontend (Vercel):** [https://sync-meet-eta.vercel.app](https://sync-meet-eta.vercel.app)
+- **Backend API (Azure):** [https://syncmeet-api-a9fsavhxepa2avh7.centralindia-01.azurewebsites.net](https://syncmeet-api-a9fsavhxepa2avh7.centralindia-01.azurewebsites.net)
+
+## Screenshots
+
+### Home Dashboard
+![Home Dashboard](assets/home.png)
+
+### Meeting Room
+![Meeting Room](assets/meeting.png)
+
+### Meetings History
+![Meetings History](assets/history.png)
+
 ---
 
 ## Tech Stack
