@@ -7,13 +7,19 @@ from database.database import engine, Base
 from routers import meetings
 from seed import seed_db
 
-# Create database tables
-Base.metadata.create_all(bind=engine)
+# Create database tables (wrapped in try-except for multi-worker safety)
+try:
+    Base.metadata.create_all(bind=engine)
+except Exception:
+    pass
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     # Auto-seed on startup if database is empty
-    seed_db(force=False)
+    try:
+        seed_db(force=False)
+    except Exception:
+        pass
     yield
 
 app = FastAPI(title="SyncMeet API", version="1.0.0", lifespan=lifespan)

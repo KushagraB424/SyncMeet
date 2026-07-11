@@ -6,7 +6,10 @@ from database.database import SessionLocal, engine, Base
 from models import models
 
 # Ensure tables exist
-Base.metadata.create_all(bind=engine)
+try:
+    Base.metadata.create_all(bind=engine)
+except Exception:
+    pass
 
 TOPICS = [
     "Project Sync", "Design Review", "Sprint Planning", "Client Catchup",
