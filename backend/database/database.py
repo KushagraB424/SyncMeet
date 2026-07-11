@@ -2,7 +2,13 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
 import os
 
-DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./syncmeet.db")
+DATABASE_URL = os.getenv("DATABASE_URL")
+if not DATABASE_URL:
+    # On Azure App Service, use /home for persistent storage
+    if os.getenv("WEBSITE_SITE_NAME"):
+        DATABASE_URL = "sqlite:////home/syncmeet.db"
+    else:
+        DATABASE_URL = "sqlite:///./syncmeet.db"
 
 # In production (e.g. Azure SQL), we don't need check_same_thread
 connect_args = {"check_same_thread": False} if "sqlite" in DATABASE_URL else {}

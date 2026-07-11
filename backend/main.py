@@ -21,8 +21,12 @@ app = FastAPI(title="SyncMeet API", version="1.0.0", lifespan=lifespan)
 # CORS middleware for frontend communication
 origins = [
     "http://localhost:3000",
-    # Add production frontend URL here when deploying
 ]
+
+# Add production frontend URL from environment variable
+frontend_url = os.getenv("FRONTEND_URL")
+if frontend_url:
+    origins.append(frontend_url)
 
 app.add_middleware(
     CORSMiddleware,
